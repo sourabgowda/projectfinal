@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">Getit</string>
+    <string name="Name">Name</string>
+    <string name="PhoneNumber">Phone Number</string>
+    <string name="Login">Login</string>
+    <string name="Designation">Designation</string>
+    <string name="Enter">Enter your name here</string>
+    <string name="EnterPh">Enter 10 Digit PhNumber</string>
+    <string name="People">Add People</string>
+    <string name="addpeople">Add People</string>
+    <string name="createnote">Create Notice</string>
+    <string name="settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Inbox">Inbox</string>
+    <string name="Faculty">Faculty</string>
+    <string name="student">Student</string>
+    <string name="Email">Email</string>
+    <string name="EnterEmail">Enter email</string>
+    <string name="Department">Department</string>
+    <string name="Add">Add</string>
+    <string name="semester">Semester</string>
+    <string name="USN">USN</string>
+    <string name="EnterPassword">Enter Correct Password</string>
+    <string name="Password">Password</string>
+    <string name="Logout">Logout</string>
+    <string name="EnterUsn">Enter your USN</string>
+
+    <string-array name="logindesignation">
+        <item>Faculty</item>
+        <item>Student</item>
+    </string-array>
+
+    <string-array name="facultydesignation">
+        <item>HOD</item>
+        <item>Associate Professor</item>
+        <item>Assistant Professor</item>
+    </string-array>
+
+    <string-array name="depts">
+        <item>computer science</item>
+        <item>civil</item>
+    </string-array>
+    <string-array name="semester">
+        <item>1st</item>
+        <item>2nd</item>
+        <item>3rd</item>
+        <item>4th</item>
+        <item>5th</item>
+        <item>6th</item>
+        <item>7th</item>
+        <item>8th</item>
+        <item>ALL</item>
+    </string-array>
+</resources>

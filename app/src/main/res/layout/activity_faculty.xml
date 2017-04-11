@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.chandan.projectfinal.FacultyActivity">
+
+    <Button
+        android:id="@+id/People"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_above="@+id/settings"
+        android:layout_alignLeft="@+id/settings"
+        android:layout_alignStart="@+id/settings"
+        android:layout_marginBottom="28dp"
+        android:contentDescription="@string/People"
+        android:drawableTop="@drawable/people"
+        android:onClick="facultyadd"
+        android:text="@string/addpeople" />
+
+    <Button
+        android:id="@+id/Notifiy"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:drawableTop="@drawable/createnote"
+        android:text="@string/createnote"
+        android:layout_marginRight="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_alignTop="@+id/People"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <Button
+        android:id="@+id/Inbox"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:drawableTop="@drawable/inbox"
+        android:text="@string/Inbox"
+        android:layout_marginBottom="24dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/People"
+        android:layout_toEndOf="@+id/People" />
+
+    <Button
+        android:id="@+id/settings"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:drawableTop="@drawable/settings"
+        android:text="@string/settings"
+        android:layout_alignTop="@+id/Inbox"
+        android:layout_toLeftOf="@+id/Notifiy"
+        android:layout_toStartOf="@+id/Notifiy" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/Notifiy"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/Notifiy"
+        android:layout_marginEnd="116dp"
+        android:layout_marginRight="116dp"
+        android:layout_marginTop="67dp"
+        android:text="@string/Faculty"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+</RelativeLayout>
