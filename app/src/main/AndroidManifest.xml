@@ -34,15 +34,24 @@
             android:label="SelectAdd" />
         <activity
             android:name=".AddFacultyActivity"
-            android:label="Add Faculty"/>
+            android:label="Add Faculty" />
         <activity
             android:name=".AddStudentActivity"
-            android:label="Add Student"/>
+            android:label="Add Student" />
         <activity
             android:name=".AddPrincipalActivity"
-            android:label="Add Principal"/>
-        <activity android:name=".StudentActivity"
-            android:label="Student"/>
+            android:label="Add Principal" />
+        <activity
+            android:name=".StudentActivity"
+            android:label="Student" />
+        <activity
+            android:name=".StudentProfileActivity"
+            android:label="Profile" />
+        <activity
+            android:name=".PrincipalProfileActivity"
+            android:label="Profile" />
+        <activity android:name=".FacultyProfileActivity"
+            android:label="Profile"/>
     </application>
 
 </manifest>

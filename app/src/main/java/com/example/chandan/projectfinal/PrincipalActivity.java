@@ -38,6 +38,9 @@ public class PrincipalActivity extends AppCompatActivity {
                 finish();
                 startActivity(new Intent(this, LoginActivity.class));
             break;
+            case R.id.profile:
+                startActivity(new Intent(this, PrincipalProfileActivity.class));
+                break;
 
         }
         return true;

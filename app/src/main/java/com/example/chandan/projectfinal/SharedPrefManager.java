@@ -40,12 +40,12 @@ public class SharedPrefManager {
         return mInstance;
     }
 //Principal Login-------------------------------------------------------------
-    public boolean userLogin(int mobileno, String name, String email){
+    public boolean userLogin(String mobileno, String name, String email){
 
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putInt(KEY_USER_MOBILENO, mobileno);
+        editor.putString(KEY_USER_MOBILENO, mobileno);
         editor.putString(KEY_USER_EMAIL, email);
         editor.putString(KEY_USERNAME, name);
 
@@ -55,17 +55,17 @@ public class SharedPrefManager {
     }
 
 //Faculty Login--------------------------------------------------------------------------------------------
-    public boolean facultyLogin(int mobileno, String name, String email, String designation, String dept){
+    public boolean facultyLogin(String mobileno, String name, String email, String dept, String designation){
 
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
 
-        editor.putInt(KEY_USER_MOBILENO, mobileno);
+        editor.putString(KEY_USER_MOBILENO, mobileno);
         editor.putString(KEY_USER_EMAIL, email);
         editor.putString(KEY_USERNAME, name);
-        editor.putString(KEY_USER_DEPT,dept);
         editor.putString(KEY_USER_DESIGNATION,designation);
+        editor.putString(KEY_USER_DEPT,dept);
 
 
         editor.apply();
@@ -128,4 +128,32 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString(KEY_USER_EMAIL, null);
     }
+
+    public String getUserUsn(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USER_USN, null);
+    }
+    public String getUserPhone(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USER_MOBILENO, null);
+    }
+    public String getUserDept(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USER_DEPT, null);
+    }
+
+    public String getUserDesignation(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USER_DESIGNATION, null);
+    }
+
+    public String getUserSem(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USER_SEM, null);
+    }
+    public String getUserSection(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USER_SECTION, null);
+    }
+
 }

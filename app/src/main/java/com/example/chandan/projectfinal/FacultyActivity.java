@@ -37,7 +37,9 @@ public class FacultyActivity extends AppCompatActivity {
                 finish();
                 startActivity(new Intent(this, LoginActivity.class));
                 break;
-
+            case R.id.profile:
+                startActivity(new Intent(this, FacultyProfileActivity.class));
+                break;
         }
         return true;
     }

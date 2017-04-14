@@ -27,6 +27,9 @@ public class StudentActivity extends AppCompatActivity {
                 finish();
                 startActivity(new Intent(this, LoginActivity.class));
                 break;
+            case R.id.profile:
+                startActivity(new Intent(this, StudentProfileActivity.class));
+                break;
 
         }
         return true;

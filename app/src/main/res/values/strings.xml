@@ -27,6 +27,8 @@
     <string name="Logout">Logout</string>
     <string name="EnterUsn">Enter your USN</string>
     <string name="section">section</string>
+    <string name="ApplyChanges">Apply</string>
+    <string name="Profile">Profile</string>
 
     <string-array name="logindesignation">
         <item>principal</item>

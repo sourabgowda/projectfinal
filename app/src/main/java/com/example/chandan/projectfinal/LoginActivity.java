@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                             if(!obj.getBoolean("error")){
                                 SharedPrefManager.getInstance(getApplicationContext())
                                         .userLogin(
-                                                obj.getInt("mobileno"),
+                                                obj.getString("mobileno"),
                                                 obj.getString("name"),
                                                 obj.getString("email")
                                         );
@@ -163,7 +163,7 @@ public class LoginActivity extends AppCompatActivity {
                             if(!obj.getBoolean("error")){
                                 SharedPrefManager.getInstance(getApplicationContext())
                                         .facultyLogin(
-                                                obj.getInt("mobileno"),
+                                                obj.getString("mobileno"),
                                                 obj.getString("name"),
                                                 obj.getString("email"),
                                                 obj.getString("dept"),
