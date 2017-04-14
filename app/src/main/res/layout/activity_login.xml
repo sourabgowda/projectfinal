@@ -21,16 +21,16 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/PhoneNumber"
+        android:text="@string/Password"
         android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
     <EditText
-        android:id="@+id/phonenumber"
-        android:inputType="phone"
-        android:maxLength="10"
+        android:id="@+id/password"
+        android:inputType="textPassword"
+        android:maxLength="30"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/EnterPh"
+        android:hint="@string/EnterPassword"
         android:layout_marginBottom="16dp"/>
 
     <TextView

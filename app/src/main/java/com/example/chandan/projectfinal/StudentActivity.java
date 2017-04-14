@@ -5,23 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
-public class FacultyActivity extends AppCompatActivity {
-    Button buttonPeople;
+public class StudentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_faculty);
-        buttonPeople=(Button)findViewById(R.id.People);
-        buttonPeople.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), SelectAddActivity.class));
-            }
-        });
+        setContentView(R.layout.activity_student);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -1,8 +1,11 @@
 package com.example.chandan.projectfinal;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,7 +28,7 @@ import java.util.Map;
 
 public class AddStudentActivity extends AppCompatActivity {
     EditText editTextName, editTextEmail, editTextUsn,editTextMobileno;
-    Spinner spinnerDept,spinnerSem;
+    Spinner spinnerDept,spinnerSem,spinnerSection;
     Button buttonAdd;
     ProgressDialog progressDialog;
 
@@ -41,6 +44,8 @@ public class AddStudentActivity extends AppCompatActivity {
         editTextMobileno = (EditText) findViewById(R.id.phonenumber);
         spinnerDept=(Spinner) findViewById(R.id.department);
         spinnerSem=(Spinner)findViewById(R.id.semester);
+        spinnerSection=(Spinner)findViewById(R.id.section);
+
         buttonAdd=(Button)findViewById(R.id.Add);
         progressDialog = new ProgressDialog(this);
 
@@ -60,6 +65,7 @@ public class AddStudentActivity extends AppCompatActivity {
         final String mobileno = editTextMobileno.getText().toString().trim();
         final String dept = spinnerDept.getSelectedItem().toString().trim();
         final String sem = spinnerSem.getSelectedItem().toString().trim();
+        final String section = spinnerSection.getSelectedItem().toString().trim();
 
 
         progressDialog.setMessage("Registering user...");
@@ -97,14 +103,32 @@ public class AddStudentActivity extends AppCompatActivity {
                 params.put("email", email);
                 params.put("dept", dept);
                 params.put("sem", sem);
+                params.put("section",section);
 
                 return params;
             }
         };
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
 
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.logout:
+                SharedPrefManager.getInstance(this).logout();
+                finish();
+                startActivity(new Intent(this, LoginActivity.class));
+                break;
+
+        }
+        return true;
     }
 
 }

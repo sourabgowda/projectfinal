@@ -7,7 +7,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context="com.example.chandan.projectfinal.AddStudentActivity">
 
@@ -93,6 +93,18 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:entries="@array/semester">
+        </Spinner>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+        <Spinner
+            android:id="@+id/section"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:entries="@array/sectionAdd">
         </Spinner>
 
         <Button

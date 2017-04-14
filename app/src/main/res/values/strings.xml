@@ -26,10 +26,12 @@
     <string name="Password">Password</string>
     <string name="Logout">Logout</string>
     <string name="EnterUsn">Enter your USN</string>
+    <string name="section">section</string>
 
     <string-array name="logindesignation">
-        <item>Faculty</item>
-        <item>Student</item>
+        <item>principal</item>
+        <item>faculty</item>
+        <item>student</item>
     </string-array>
 
     <string-array name="facultydesignation">
@@ -41,6 +43,13 @@
     <string-array name="depts">
         <item>computer science</item>
         <item>civil</item>
+    </string-array>
+
+    <string-array name="sectionAdd">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
     </string-array>
     <string-array name="semester">
         <item>1st</item>

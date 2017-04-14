@@ -12,10 +12,9 @@
         android:drawableTop="@drawable/people"
         android:contentDescription="@string/People"
         android:text="@string/addpeople"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="60dp"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/Notifiy"
-        android:layout_alignStart="@+id/Notifiy" />
+        android:layout_centerHorizontal="true"/>
 
     <Button
         android:id="@+id/Notifiy"
@@ -26,8 +25,7 @@
         android:layout_marginRight="100dp"
         android:layout_marginEnd="100dp"
         android:layout_below="@+id/People"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="60dp" />
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
