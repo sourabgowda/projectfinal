@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -52,8 +53,26 @@ public class AddStudentActivity extends AppCompatActivity {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registerUser();
+                if (!TextUtils.isEmpty(editTextName.getText().toString()) || !TextUtils.isEmpty(editTextUsn.getText().toString()) || !TextUtils.isEmpty(editTextMobileno.getText().toString())|| !TextUtils.isEmpty(editTextEmail.getText().toString())){
+                    registerUser();
+                }
+                else{
+                    if (TextUtils.isEmpty(editTextName.getText().toString())) {
+                        Toast.makeText(getApplicationContext(), "you should enter a name", Toast.LENGTH_LONG).show();
 
+                    } else if (TextUtils.isEmpty(editTextUsn.getText().toString())) {
+                        Toast.makeText(getApplicationContext(), "you should enter a Phone Number", Toast.LENGTH_LONG).show();
+
+                    }
+                    else if (TextUtils.isEmpty(editTextMobileno.getText().toString())) {
+                        Toast.makeText(getApplicationContext(), "you should enter a password", Toast.LENGTH_LONG).show();
+
+                    }
+                    else if (TextUtils.isEmpty(editTextEmail.getText().toString())) {
+                        Toast.makeText(getApplicationContext(), "you should enter a Email in the right format", Toast.LENGTH_LONG).show();
+
+                    }
+                }
             }
         });
     }

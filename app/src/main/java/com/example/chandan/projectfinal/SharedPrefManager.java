@@ -48,6 +48,7 @@ public class SharedPrefManager {
         editor.putString(KEY_USER_MOBILENO, mobileno);
         editor.putString(KEY_USER_EMAIL, email);
         editor.putString(KEY_USERNAME, name);
+        editor.putString(KEY_USER_DESIGNATION,"principal");
 
         editor.apply();
 
@@ -87,6 +88,7 @@ public class SharedPrefManager {
         editor.putString(KEY_USER_SEM,sem);
         editor.putString(KEY_USER_USN,usn);
         editor.putString(KEY_USER_SECTION,section);
+        editor.putString(KEY_USER_DESIGNATION,"student");
 
 
         editor.apply();
@@ -100,7 +102,7 @@ public class SharedPrefManager {
         if(sharedPreferences.getString(KEY_USER_USN, null) != null){
             return 1;
         }
-        else if(sharedPreferences.getString(KEY_USER_DESIGNATION, null) != null){
+        else if(sharedPreferences.getString(KEY_USER_DEPT, null) != null){
             return 2;
         }
         else if(sharedPreferences.getString(KEY_USERNAME, null) != null){

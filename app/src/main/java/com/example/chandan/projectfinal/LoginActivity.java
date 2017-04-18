@@ -4,10 +4,11 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -66,14 +67,47 @@ public class LoginActivity extends AppCompatActivity {
                 String designation=spinnerDesignation.getSelectedItem().toString();
 
                 if(designation.equalsIgnoreCase("principal")){
-                    userLogin();
+                    if (!TextUtils.isEmpty(editTextName.getText().toString()) || !TextUtils.isEmpty(editTextPassword.getText().toString())){
+                        userLogin();
+                    }
+                    else{
+                        if (TextUtils.isEmpty(editTextName.getText().toString())) {
+                            Toast.makeText(getApplicationContext(), "you should enter a name", Toast.LENGTH_LONG).show();
+
+                        } else if (TextUtils.isEmpty(editTextPassword.getText().toString())) {
+                            Toast.makeText(getApplicationContext(), "you should enter a Password", Toast.LENGTH_LONG).show();
+
+                        }
+                    }
                 }
                 else if(designation.equalsIgnoreCase("faculty")){
-                    facultyLogin();
+                    if (!TextUtils.isEmpty(editTextName.getText().toString()) || !TextUtils.isEmpty(editTextPassword.getText().toString())){
+                        facultyLogin();
+                    }
+                    else{
+                        if (TextUtils.isEmpty(editTextName.getText().toString())) {
+                            Toast.makeText(getApplicationContext(), "you should enter a name", Toast.LENGTH_LONG).show();
+
+                        } else if (TextUtils.isEmpty(editTextPassword.getText().toString())) {
+                            Toast.makeText(getApplicationContext(), "you should enter a Password", Toast.LENGTH_LONG).show();
+
+                        }
+                    }
 
                 }
                 else{
-                    studentLogin();
+                    if (!TextUtils.isEmpty(editTextName.getText().toString()) || !TextUtils.isEmpty(editTextPassword.getText().toString())){
+                        studentLogin();
+                    }
+                    else{
+                        if (TextUtils.isEmpty(editTextName.getText().toString())) {
+                            Toast.makeText(getApplicationContext(), "you should enter a name", Toast.LENGTH_LONG).show();
+
+                        } else if (TextUtils.isEmpty(editTextPassword.getText().toString())) {
+                            Toast.makeText(getApplicationContext(), "you should enter a Phone Number", Toast.LENGTH_LONG).show();
+
+                        }
+                    }
 
                 }
             }

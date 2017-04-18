@@ -8,26 +8,26 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class FacultyActivity extends AppCompatActivity {
-    Button buttonPeople,buttonNotice;
-
+public class CreateNoticeActivity extends AppCompatActivity {
+    Button buttonFaculty,buttonStudent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_faculty);
-        buttonPeople=(Button)findViewById(R.id.People);
-        buttonPeople.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_create_notice);
+        buttonStudent=(Button)findViewById(R.id.student);
+        buttonFaculty=(Button)findViewById(R.id.faculty);
+
+        buttonFaculty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), SelectAddActivity.class));
+                startActivity(new Intent(getApplicationContext(), CreateFacultyNoticeActivity.class));
             }
         });
 
-        buttonNotice=(Button)findViewById(R.id.Notifiy);
-        buttonNotice.setOnClickListener(new View.OnClickListener() {
+        buttonStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), CreateNoticeActivity.class));
+                startActivity(new Intent(getApplicationContext(), CreateStudentNoticeActivity.class));
             }
         });
     }
@@ -45,9 +45,7 @@ public class FacultyActivity extends AppCompatActivity {
                 finish();
                 startActivity(new Intent(this, LoginActivity.class));
                 break;
-            case R.id.profile:
-                startActivity(new Intent(this, FacultyProfileActivity.class));
-                break;
+
         }
         return true;
     }

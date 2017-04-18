@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 
 public class StudentProfileActivity extends AppCompatActivity {
     EditText editTextName, editTextEmail, editTextUsn,editTextMobileno,editTextDept,editTextSem,editTextSection;

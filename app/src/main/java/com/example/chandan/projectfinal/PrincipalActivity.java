@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class PrincipalActivity extends AppCompatActivity {
-    Button buttonAddPeople;
+    Button buttonAddPeople,buttonNotify;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,14 @@ public class PrincipalActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), SelectAddActivity.class));
+            }
+        });
+
+        buttonNotify=(Button)findViewById(R.id.Notify);
+        buttonNotify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), CreateNoticeActivity.class));
             }
         });
     }

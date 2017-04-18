@@ -50,8 +50,15 @@
         <activity
             android:name=".PrincipalProfileActivity"
             android:label="Profile" />
-        <activity android:name=".FacultyProfileActivity"
-            android:label="Profile"/>
+        <activity
+            android:name=".FacultyProfileActivity"
+            android:label="Profile" />
+        <activity android:name=".CreateNoticeActivity"
+            android:label="Notice Type"/>
+        <activity android:name=".CreateFacultyNoticeActivity"
+            android:label="Faculty Notice"/>
+        <activity android:name=".CreateStudentNoticeActivity"
+            android:label="Student Notice"/>
     </application>
 
 </manifest>

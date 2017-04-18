@@ -29,6 +29,15 @@
     <string name="section">section</string>
     <string name="ApplyChanges">Apply</string>
     <string name="Profile">Profile</string>
+    <string name="title">TITLE</string>
+    <string name="content">CONTENT</string>
+    <string name="EnterContent">Enter the content</string>
+    <string name="sender">SENDER</string>
+    <string name="senderDesignation">SENDER DESIGNATION</string>
+    <string name="type">TYPE</string>
+    <string name="receiver">RECEIVER</string>
+    <string name="EnterTitle">Enter the title of notice</string>
+    <string name="SenderEmail">SENDER EMAIL</string>
 
     <string-array name="logindesignation">
         <item>principal</item>
@@ -64,4 +73,23 @@
         <item>8th</item>
         <item>ALL</item>
     </string-array>
+
+    <string-array name="Noticetype">
+        <item>All</item>
+        <item>Individual</item>
+    </string-array>
+    <string-array name="receiver">
+        <item>All</item>
+    </string-array>
+    <string-array name="section">
+        <item>All</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+    </string-array>
+
+
+
+
 </resources>
