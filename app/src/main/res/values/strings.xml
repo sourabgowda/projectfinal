@@ -88,8 +88,15 @@
         <item>C</item>
         <item>D</item>
     </string-array>
-
-
+    <string name="title_activity_notice_tab">NoticeTabActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_student_notice_tab">StudentNoticeTabActivity</string>
+    <string name="title_activity_student_inbox">StudentInboxActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="datetime">Date Time</string>
+    <string name="studentNotice">Notices</string>
+    <string name="title_activity_faculty_inbox">FacultyInboxActivity</string>
 
 
 </resources>

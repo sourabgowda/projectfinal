@@ -129,6 +129,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         progressDialog.dismiss();
+
                         try {
                             JSONObject obj = new JSONObject(response);
                             if(!obj.getBoolean("error")){

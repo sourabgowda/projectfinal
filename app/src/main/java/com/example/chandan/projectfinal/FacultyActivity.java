@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class FacultyActivity extends AppCompatActivity {
-    Button buttonPeople,buttonNotice;
+    Button buttonPeople,buttonNotice,buttonInbox,buttonProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,21 @@ public class FacultyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), CreateNoticeActivity.class));
+            }
+        });
+
+        buttonInbox=(Button)findViewById(R.id.Inbox);
+        buttonInbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), FacultyInboxActivity.class));
+            }
+        });
+        buttonProfile=(Button)findViewById(R.id.profile);
+        buttonProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), FacultyProfileActivity.class));
             }
         });
     }

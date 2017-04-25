@@ -79,8 +79,16 @@ public class CreateStudentNoticeActivity extends AppCompatActivity {
         final String content = editTextContent.getText().toString().trim();
         final String sender = editTextSenderDesignation.getText().toString().trim();
         final String sendermail = editTextSenderEmail.getText().toString().trim();
-        final String receiver = spinnerReceiver.getSelectedItem().toString().trim();
         final String type = spinnerType.getSelectedItem().toString().trim();
+        final String receiver;
+        if(type.equalsIgnoreCase("individual")) {
+            receiver =SharedPrefManager.getInstance(this).getUsername();
+
+        }
+        else
+        {
+            receiver = spinnerReceiver.getSelectedItem().toString().trim();
+        }
         final String dept = spinnerDept.getSelectedItem().toString().trim();
         final String semester = spinnerSemester.getSelectedItem().toString().trim();
         final String section = spinnerSection.getSelectedItem().toString().trim();

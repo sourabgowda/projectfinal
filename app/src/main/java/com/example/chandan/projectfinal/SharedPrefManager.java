@@ -25,6 +25,7 @@ public class SharedPrefManager {
     private static final String KEY_USER_DESIGNATION= "designation";
     private static final String KEY_USER_SEM= "sem";
     private static final String KEY_USER_SECTION= "section";
+    private static final String KEY_USER_TYPE="individual";
 
 
 
@@ -49,6 +50,7 @@ public class SharedPrefManager {
         editor.putString(KEY_USER_EMAIL, email);
         editor.putString(KEY_USERNAME, name);
         editor.putString(KEY_USER_DESIGNATION,"principal");
+        editor.putString(KEY_USER_TYPE,"individual");
 
         editor.apply();
 
@@ -67,6 +69,7 @@ public class SharedPrefManager {
         editor.putString(KEY_USERNAME, name);
         editor.putString(KEY_USER_DESIGNATION,designation);
         editor.putString(KEY_USER_DEPT,dept);
+        editor.putString(KEY_USER_TYPE,"individual");
 
 
         editor.apply();
@@ -89,6 +92,7 @@ public class SharedPrefManager {
         editor.putString(KEY_USER_USN,usn);
         editor.putString(KEY_USER_SECTION,section);
         editor.putString(KEY_USER_DESIGNATION,"student");
+        editor.putString(KEY_USER_TYPE,"individual");
 
 
         editor.apply();
@@ -156,6 +160,10 @@ public class SharedPrefManager {
     public String getUserSection(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString(KEY_USER_SECTION, null);
+    }
+    public String getUserType(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USER_TYPE, null);
     }
 
 }

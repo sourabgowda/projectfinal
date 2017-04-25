@@ -53,12 +53,23 @@
         <activity
             android:name=".FacultyProfileActivity"
             android:label="Profile" />
-        <activity android:name=".CreateNoticeActivity"
-            android:label="Notice Type"/>
-        <activity android:name=".CreateFacultyNoticeActivity"
-            android:label="Faculty Notice"/>
-        <activity android:name=".CreateStudentNoticeActivity"
-            android:label="Student Notice"/>
+        <activity
+            android:name=".CreateNoticeActivity"
+            android:label="Notice Type" />
+        <activity
+            android:name=".CreateFacultyNoticeActivity"
+            android:label="Faculty Notice" />
+        <activity
+            android:name=".CreateStudentNoticeActivity"
+            android:label="Student Notice" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/studentNotice"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FacultyInboxActivity"
+            android:label="@string/title_activity_faculty_inbox"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
