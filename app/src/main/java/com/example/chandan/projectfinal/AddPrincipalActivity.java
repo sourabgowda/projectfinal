@@ -129,8 +129,11 @@ public class AddPrincipalActivity extends AppCompatActivity {
         switch(item.getItemId()){
             case R.id.logout:
                 SharedPrefManager.getInstance(this).logout();
+                Intent intent=new Intent(this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
                 finish();
-                startActivity(new Intent(this, LoginActivity.class));
                 break;
 
         }

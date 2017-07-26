@@ -35,20 +35,22 @@ public class FacultyActivity extends AppCompatActivity {
         buttonInbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), FacultyInboxActivity.class));
+                startActivity(new Intent(getApplicationContext(), FacultyNotices.class));
             }
         });
         buttonProfile=(Button)findViewById(R.id.profile);
         buttonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), FacultyProfileActivity.class));
+//                startActivity(new Intent(getApplicationContext(), FacultyProfileActivity.class));
+
+                startActivity(new Intent(getApplicationContext(), SentNoticesActivity.class));
             }
         });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.home, menu);
         return true;
     }
 
@@ -57,12 +59,20 @@ public class FacultyActivity extends AppCompatActivity {
         switch(item.getItemId()){
             case R.id.logout:
                 SharedPrefManager.getInstance(this).logout();
+                Intent intent=new Intent(this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
                 finish();
-                startActivity(new Intent(this, LoginActivity.class));
+                break;
+            case R.id.changePassword:
+                startActivity(new Intent(this, UpdatePasswordActivity.class));
                 break;
             case R.id.profile:
                 startActivity(new Intent(this, FacultyProfileActivity.class));
                 break;
+
+
         }
         return true;
     }

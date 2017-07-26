@@ -26,6 +26,8 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AddFacultyActivity extends AppCompatActivity {
     EditText editTextName, editTextEmail, editTextPassword,editTextMobileno;
@@ -52,7 +54,16 @@ public class AddFacultyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!TextUtils.isEmpty(editTextName.getText().toString()) || !TextUtils.isEmpty(editTextPassword.getText().toString()) || !TextUtils.isEmpty(editTextMobileno.getText().toString())|| !TextUtils.isEmpty(editTextEmail.getText().toString())){
-                    registerUser();
+                    if(emailValidator(editTextEmail.getText().toString()))
+                    {
+                        if(mobilenoValidator(editTextMobileno.getText().toString()))
+                            registerUser();
+                        else
+                            Toast.makeText(getApplicationContext(), "enter 10 digit mobile number", Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "enter email in correct format", Toast.LENGTH_LONG).show();
+                    }
                 }
                 else{
                     if (TextUtils.isEmpty(editTextName.getText().toString())) {
@@ -75,6 +86,25 @@ public class AddFacultyActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public boolean emailValidator(String email)
+    {
+        Pattern pattern;
+        Matcher matcher;
+        final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+    public boolean mobilenoValidator(String email)
+    {
+        Pattern pattern;
+        Matcher matcher;
+        final String EMAIL_PATTERN = "^[0-9]{10}$";
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 
     private void registerUser() {
@@ -131,7 +161,7 @@ public class AddFacultyActivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -140,8 +170,17 @@ public class AddFacultyActivity extends AppCompatActivity {
         switch(item.getItemId()){
             case R.id.logout:
                 SharedPrefManager.getInstance(this).logout();
+                Intent intent=new Intent(this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
                 finish();
-                startActivity(new Intent(this, LoginActivity.class));
+                break;
+            case R.id.Home:
+                if(SharedPrefManager.getInstance(this).getUserDesignation().toString().equalsIgnoreCase("Principal")){
+                    startActivity(new Intent(this, PrincipalActivity.class));}
+                else
+                    startActivity(new Intent(this,FacultyActivity.class));
                 break;
 
         }

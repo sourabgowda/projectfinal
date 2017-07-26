@@ -29,7 +29,7 @@ public class PrincipalProfileActivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.logout, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -38,9 +38,18 @@ public class PrincipalProfileActivity extends AppCompatActivity {
         switch(item.getItemId()){
             case R.id.logout:
                 SharedPrefManager.getInstance(this).logout();
+                Intent intent=new Intent(this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
                 finish();
-                startActivity(new Intent(this, LoginActivity.class));
                 break;
+
+            case R.id.Home:
+                startActivity(new Intent(this, PrincipalActivity.class));
+                finish();
+                break;
+
 
         }
         return true;

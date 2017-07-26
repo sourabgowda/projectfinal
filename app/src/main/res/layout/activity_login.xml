@@ -1,43 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
     tools:context="com.example.chandan.projectfinal.LoginActivity">
 
-    <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/Enter"
-        android:layout_marginBottom="16dp"/>
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Password"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/usrusr"
+            android:layout_gravity="center"/>
 
-    <EditText
-        android:id="@+id/password"
-        android:inputType="textPassword"
-        android:maxLength="30"
+        <!--<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button" />-->
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:hint="@string/Enter"
+            android:layout_marginBottom="16dp"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/EnterPassword"
-        android:layout_marginBottom="16dp"/>
+        android:orientation="horizontal">
+
+        <!--<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Password"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button" />-->
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/pswd"
+            android:layout_gravity="center"/>
+
+        <EditText
+            android:id="@+id/password"
+            android:inputType="textPassword"
+            android:maxLength="30"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/EnterPassword"
+            android:layout_marginBottom="16dp"
+            android:textAlignment="center"/>
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:text="@string/Designation"
         android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
     <Spinner
         android:id="@+id/designation"
         android:layout_width="match_parent"
@@ -45,13 +87,23 @@
         android:entries="@array/logindesignation">
     </Spinner>
 
-    <Button
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/Login"
-        android:background="@color/colorPrimary"
-        android:textAppearance="@android:style/TextAppearance.Holo.Large" />
+        android:paddingTop="15dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/Login"
+            android:background="@color/colorPrimary"
+            android:textAppearance="@android:style/TextAppearance.Holo.Large" />
+
+    </LinearLayout>
 
 </LinearLayout>
+</ScrollView>

@@ -19,7 +19,7 @@ public class PrincipalActivity extends AppCompatActivity {
         buttonAddPeople.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), SelectAddActivity.class));
+                startActivity(new Intent(getApplicationContext(), CreateNoticeActivity.class));
             }
         });
 
@@ -27,14 +27,15 @@ public class PrincipalActivity extends AppCompatActivity {
         buttonNotify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), CreateNoticeActivity.class));
+
+                startActivity(new Intent(getApplicationContext(), SentNoticesActivity.class));
             }
         });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.menu_main2, menu);
         return true;
     }
 
@@ -43,14 +44,28 @@ public class PrincipalActivity extends AppCompatActivity {
         switch(item.getItemId()){
             case R.id.logout:
                 SharedPrefManager.getInstance(this).logout();
+                Intent intent=new Intent(this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
                 finish();
-                startActivity(new Intent(this, LoginActivity.class));
             break;
             case R.id.profile:
-                startActivity(new Intent(this, PrincipalProfileActivity.class));
+                startActivity(new Intent(getApplicationContext(), PrincipalProfileActivity.class));
+
                 break;
+
+            case R.id.AddPeople:
+                startActivity(new Intent(getApplicationContext(), SelectAddActivity.class));
+
+                break;
+            case R.id.changePassword:
+                startActivity(new Intent(this, UpdatePasswordActivity.class));
+                break;
+
 
         }
         return true;
     }
+
 }

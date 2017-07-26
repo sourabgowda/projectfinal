@@ -9,73 +9,121 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:gravity="center"
         tools:context="com.example.chandan.projectfinal.AddStudentActivity">
 
-        <TextView
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-        <EditText
-            android:id="@+id/name"
-            android:maxLength="30"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:editable="false"/>
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/PhoneNumber"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/usrusr"
+                android:layout_gravity="center"/>
 
-        <EditText
-            android:id="@+id/phonenumber"
-            android:maxLength="10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:editable="false"/>
+            <EditText
+                android:id="@+id/name"
+                android:maxLength="30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:editable="false"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Email"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/email"
-            android:maxLength="30"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:editable="false"/>
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Department"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-        <EditText
-            android:id="@+id/department"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:editable="false"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/phonemob"
+                android:layout_gravity="center"/>
 
 
+            <EditText
+                android:id="@+id/phonenumber"
+                android:maxLength="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                />
 
-        <TextView
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Designation"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-        <EditText
-            android:id="@+id/designation"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/email"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/email"
+                android:maxLength="30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:editable="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:editable="false"/>
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/department"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/department"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:editable="false"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/designation"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/designation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"/>
+        </LinearLayout>
 
 
         <Button

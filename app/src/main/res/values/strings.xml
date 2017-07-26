@@ -46,21 +46,32 @@
     </string-array>
 
     <string-array name="facultydesignation">
+        <item>COE</item>
+        <item>Administrative Dept</item>
+        <item>Dean</item>
         <item>HOD</item>
         <item>Associate Professor</item>
         <item>Assistant Professor</item>
     </string-array>
 
     <string-array name="depts">
-        <item>computer science</item>
-        <item>civil</item>
+        <item>Computer Science</item>
+        <item>Civil</item>
+        <item>Information Science</item>
+        <item>Electronics and Commmunication</item>
+        <item>Mechanical</item>
+        <item>Electrical</item>
+        <item>Telecommunication</item>
+        <item>Medical Electronics</item>
+        <item>Instrumentation</item>
+        <item>IEM</item>
+        <item>All</item>
     </string-array>
 
     <string-array name="sectionAdd">
         <item>A</item>
         <item>B</item>
         <item>C</item>
-        <item>D</item>
     </string-array>
     <string-array name="semester">
         <item>1st</item>
@@ -86,7 +97,6 @@
         <item>A</item>
         <item>B</item>
         <item>C</item>
-        <item>D</item>
     </string-array>
     <string name="title_activity_notice_tab">NoticeTabActivity</string>
     <string name="action_settings">Settings</string>
@@ -97,6 +107,16 @@
     <string name="datetime">Date Time</string>
     <string name="studentNotice">Notices</string>
     <string name="title_activity_faculty_inbox">FacultyInboxActivity</string>
+    <string name="title_activity_sent_by">SentByActivity</string>
+    <string name="title_activity_sent_notices">SentNoticesActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="SentNotices">Sent Notices</string>
+    <string name="Home">Home</string>
+    <string name="newpass">New Password</string>
+    <string name="newpassconfirm">Confirm New Password</string>
+    <string name="reEnter">Re-enter New password</string>
+    <string name="update">Update</string>
+    <string name="changePass">Change Password</string>
 
 
 </resources>

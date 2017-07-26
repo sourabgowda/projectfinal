@@ -9,66 +9,104 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:gravity="center"
         tools:context="com.example.chandan.projectfinal.AddFacultyActivity">
 
-        <TextView
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-        <EditText
-            android:id="@+id/name"
-            android:maxLength="30"
-            android:inputType="textPersonName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/Enter"
-            android:layout_marginBottom="16dp"/>
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/PhoneNumber"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/usrusr"
+                android:layout_gravity="center"/>
 
-        <EditText
-            android:id="@+id/phonenumber"
-            android:inputType="phone"
-            android:maxLength="10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/EnterPh"
-            android:layout_marginBottom="16dp"/>
+            <EditText
+                android:id="@+id/name"
+                android:maxLength="30"
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Enter"
+                android:layout_marginBottom="16dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Email"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/email"
-            android:maxLength="30"
-            android:inputType="textEmailAddress"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/EnterEmail"
-            android:layout_marginBottom="16dp"/>
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Password"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/phonemob"
+                android:layout_gravity="center"/>
 
-        <EditText
-            android:id="@+id/password"
-            android:maxLength="30"
-            android:inputType="textPassword"
+            <EditText
+                android:id="@+id/phonenumber"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/EnterPh"
+                android:layout_marginBottom="16dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/EnterPassword"
-            android:layout_marginBottom="16dp"/>
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/email"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/email"
+                android:maxLength="30"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/EnterEmail"
+                android:layout_marginBottom="16dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/pswd"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/password"
+                android:maxLength="30"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/EnterPassword"
+                android:layout_marginBottom="16dp"/>
+
+        </LinearLayout>
 
 
         <TextView

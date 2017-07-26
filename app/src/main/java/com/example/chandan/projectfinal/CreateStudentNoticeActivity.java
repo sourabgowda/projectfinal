@@ -1,11 +1,17 @@
 package com.example.chandan.projectfinal;
 
+import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -17,9 +23,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -72,7 +80,139 @@ public class CreateStudentNoticeActivity extends AppCompatActivity {
 
             }
         });
+
+
+        spinnerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+
+                getStudent();
+
+                }
+
+                @Override
+                public void onNothingSelected (AdapterView < ? > parentView){
+                    // your code here
+                }
+
+        });
+
+        spinnerDept.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+
+                getStudent();
+
+            }
+
+            @Override
+            public void onNothingSelected (AdapterView < ? > parentView){
+                // your code here
+            }
+
+        });
+
+        spinnerSemester.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+
+                getStudent();
+
+            }
+
+            @Override
+            public void onNothingSelected (AdapterView < ? > parentView){
+                // your code here
+            }
+
+        });
+
+        spinnerSection.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+
+                getStudent();
+
+            }
+
+            @Override
+            public void onNothingSelected (AdapterView < ? > parentView){
+                // your code here
+            }
+
+        });
+
+
+
     }
+private void getStudent(){
+    final String type = spinnerType.getSelectedItem().toString().trim();
+    if (type.equalsIgnoreCase("individual")) {
+
+
+        final String dept = spinnerDept.getSelectedItem().toString().trim();
+        final String semester = spinnerSemester.getSelectedItem().toString().trim();
+        final String section = spinnerSection.getSelectedItem().toString().trim();
+
+
+        progressDialog.show();
+
+        StringRequest stringRequest = new StringRequest(
+                Request.Method.POST,
+                Constants.URL_GET_INDIVIDUAL_STUDENT,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        progressDialog.dismiss();
+
+                        try {
+                            JSONArray array = new JSONArray(response);
+                            ArrayList<String> listitem = new ArrayList<>();
+                            for (int i = 0; i < array.length(); i++) {
+                                JSONObject o = array.getJSONObject(i);
+                                String name = o.getString("name");
+                                listitem.add(name);
+                            }
+                            Log.d(String.valueOf(listitem), "onResponse: ");
+
+                            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.spinner,R.id.text, listitem);
+                            spinnerReceiver.setAdapter(adapter);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        progressDialog.dismiss();
+
+                        Toast.makeText(
+                                getApplicationContext(),
+                                error.getMessage(),
+                                Toast.LENGTH_LONG
+                        ).show();
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("dept", dept);
+                params.put("sem", semester);
+                params.put("section", section);
+                return params;
+            }
+
+        };
+
+        RequestHandler.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);
+
+    }
+
+}
+
 
     private void addStudentNotice() {
         final String title = editTextTitle.getText().toString().trim();
@@ -81,14 +221,8 @@ public class CreateStudentNoticeActivity extends AppCompatActivity {
         final String sendermail = editTextSenderEmail.getText().toString().trim();
         final String type = spinnerType.getSelectedItem().toString().trim();
         final String receiver;
-        if(type.equalsIgnoreCase("individual")) {
-            receiver =SharedPrefManager.getInstance(this).getUsername();
 
-        }
-        else
-        {
             receiver = spinnerReceiver.getSelectedItem().toString().trim();
-        }
         final String dept = spinnerDept.getSelectedItem().toString().trim();
         final String semester = spinnerSemester.getSelectedItem().toString().trim();
         final String section = spinnerSection.getSelectedItem().toString().trim();
@@ -146,6 +280,36 @@ public class CreateStudentNoticeActivity extends AppCompatActivity {
             }
         };
         RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.logout:
+                SharedPrefManager.getInstance(this).logout();
+                Intent intent=new Intent(this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+                break;
+            case R.id.Home:
+                if(SharedPrefManager.getInstance(this).getUserDesignation().toString().equalsIgnoreCase("Principal")){
+                    startActivity(new Intent(this, PrincipalActivity.class));}
+                else
+                    startActivity(new Intent(this,FacultyActivity.class));
+                break;
+
+
+        }
+        return true;
     }
 
 }

@@ -9,91 +9,103 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/linear"
         tools:context="com.example.chandan.projectfinal.AddFacultyActivity">
 
-        <TextView
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-        <EditText
-            android:id="@+id/title"
-            android:maxLength="50"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/EnterTitle"
-            android:layout_marginBottom="16dp"/>
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/title"
+                android:layout_gravity="center"/>
+            <EditText
+                android:id="@+id/title"
+                android:maxLength="50"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/EnterTitle"
+                android:layout_marginBottom="16dp"/>
+        </LinearLayout>
 
-        <TextView
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/content"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/content"
+                android:maxLength="1500"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/EnterContent"
+                android:gravity="start"
+                android:layout_marginBottom="16dp"/>
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+            android:orientation="horizontal"
+            android:visibility="gone">
 
-        <EditText
-            android:id="@+id/content"
-            android:maxLength="1500"
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/designation"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/sender"
+                android:maxLength="30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:layout_marginBottom="16dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
+            android:orientation="horizontal"
             android:layout_height="wrap_content"
-            android:hint="@string/EnterContent"
-            android:gravity="start"
-            android:layout_marginBottom="16dp"/>
+            android:visibility="gone">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/senderDesignation"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/email"
+                android:layout_gravity="center"/>
 
-        <EditText
-            android:id="@+id/sender"
-            android:maxLength="30"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:editable="false"
-            android:layout_marginBottom="16dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/SenderEmail"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-
-        <EditText
-            android:id="@+id/email"
-            android:maxLength="30"
-            android:inputType="textEmailAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:editable="false"
-            android:layout_marginBottom="16dp"/>
+            <EditText
+                android:id="@+id/email"
+                android:maxLength="30"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:layout_marginBottom="16dp"/>
+        </LinearLayout>
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/type"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
-        <Spinner
-            android:id="@+id/type"
-            android:entries="@array/Noticetype"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginBottom="16dp">
-        </Spinner>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/receiver"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-
-        <Spinner
-            android:id="@+id/receiver"
-            android:entries="@array/receiver"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginBottom="16dp">
-        </Spinner>
 
 
         <TextView
@@ -135,6 +147,35 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:entries="@array/section">
+        </Spinner>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/type"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
+        <Spinner
+            android:id="@+id/type"
+            android:entries="@array/Noticetype"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="16dp">
+        </Spinner>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/receiver"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
+        <Spinner
+            android:id="@+id/receiver"
+            android:entries="@array/receiver"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="16dp">
         </Spinner>
 
         <Button

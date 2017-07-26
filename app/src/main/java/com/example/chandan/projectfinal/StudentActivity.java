@@ -20,7 +20,7 @@ public class StudentActivity extends AppCompatActivity {
         buttonInbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                startActivity(new Intent(getApplicationContext(),StudentNotices.class));
             }
         });
 
@@ -34,7 +34,7 @@ public class StudentActivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -43,12 +43,17 @@ public class StudentActivity extends AppCompatActivity {
         switch(item.getItemId()){
             case R.id.logout:
                 SharedPrefManager.getInstance(this).logout();
+                Intent intent=new Intent(this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);;
                 finish();
-                startActivity(new Intent(this, LoginActivity.class));
                 break;
             case R.id.profile:
                 startActivity(new Intent(this, StudentProfileActivity.class));
                 break;
+
+
 
         }
         return true;

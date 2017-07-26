@@ -1,28 +1,15 @@
 package com.example.chandan.projectfinal;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
+import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -39,69 +26,56 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Created by Chandan on 19-05-2017.
+ */
 
-    RecyclerView rvItem;
-    private ProgressDialog progressDialog;
+public class IndividualFragment extends Fragment {
 
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        View v= inflater.inflate(R.layout.individual_student_notice,null);
+
+//        loadRecyclerViewData();
+
+        return v;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void onAttach(Context context) {
+        super.onAttach(context);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-    rvItem=(RecyclerView)findViewById(R.id.rvItem);
-        rvItem.setHasFixedSize(true);
-
-        LinearLayoutManager manager=new LinearLayoutManager(this);
-        rvItem.setLayoutManager(manager);
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait...");
-    //   ArrayList<Item> listitem=generatedDummy();
-
-  //      ItemAdapter adapter=new ItemAdapter(getApplicationContext(),listitem);
-    //    rvItem.setAdapter(adapter);
+        final String receiver=SharedPrefManager.getInstance(this.getActivity()).getUsername();
+        final String type=SharedPrefManager.getInstance(this.getActivity()).getUserType();
+        final String dept=SharedPrefManager.getInstance(this.getActivity()).getUserDept();
+        final String sem=SharedPrefManager.getInstance(this.getActivity()).getUserSem();
+        final String section=SharedPrefManager.getInstance(this.getActivity()).getUserSection();
 
 
-        loadRecyclerViewData();
+        loadRecyclerViewData(receiver,type,dept,sem,section);
     }
 
-
-  /*  private ArrayList<Item> generatedDummy(){
-        ArrayList<Item> items=new ArrayList<>();
-        for(int i=0;i<10;i++){
-        Item item=new Item("asjfasfoa","asfafsj","asfafsj","asfafsj","asfafsj","asfafsj","asfafsj","asfafsj","asfafsj","asfafsj");
-            items.add(item);
-
-        }
-        return items;
-    }
-*/
-    private void loadRecyclerViewData(){
-        final String receiver=SharedPrefManager.getInstance(this).getUsername();
-        final String type=SharedPrefManager.getInstance(this).getUserType();
-        final String dept=SharedPrefManager.getInstance(this).getUserDept();
-        final String sem=SharedPrefManager.getInstance(this).getUserSem();
-        final String section=SharedPrefManager.getInstance(this).getUserSection();
+    private void loadRecyclerViewData(final String receiver, final String type, final String dept, final String sem, final String section){
 
 
 
-        progressDialog.show();
+
+
+//            progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
-                Constants.URL_GET_STUDENT_NOTICE,
+                Constants.URL_GET_INDIVIDUAL_STUDENT_NOTICE,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        progressDialog.dismiss();
+//                            progressDialog.dismiss();
                         Log.d(response,"responses");
                         try {
 
-int j=1;
+                            int j=1;
                             if(j==1){
                                 JSONArray array=new JSONArray(response);
                                 ArrayList<Item> listitem=new ArrayList<>();
@@ -122,12 +96,16 @@ int j=1;
                                     listitem.add(item);
 
                                 }
-                                ItemAdapter adapter=new ItemAdapter(getApplicationContext(),listitem);
-                                rvItem.setAdapter(adapter);
+                                View v=getView();
+                                RecyclerView rv= (RecyclerView) v.findViewById(R.id.rvItemIndiStudentNotice);
+                                rv.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+
+                                ItemAdapter adapter=new ItemAdapter(getActivity(),listitem);
+                                rv.setAdapter(adapter);
                             }else{
                                 Toast.makeText(
-                                        getApplicationContext(),
+                                        getActivity(),
                                         "error in json",
                                         Toast.LENGTH_LONG
                                 ).show();
@@ -140,10 +118,9 @@ int j=1;
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        progressDialog.dismiss();
+//                            progressDialog.dismiss();
 
-                        Toast.makeText(
-                                getApplicationContext(),
+                        Toast.makeText(getActivity(),
                                 error.getMessage(),
                                 Toast.LENGTH_LONG
                         ).show();
@@ -154,39 +131,21 @@ int j=1;
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("receiver",receiver);
-                params.put("type", type);
+                params.put("type", "Individual");
                 params.put("dept", dept);
                 params.put("sem", sem);
                 params.put("section", section);
-Log.d(type,"what type?");
+                Log.d(type,"what type?");
                 return params;
             }
 
         };
 
-        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
+        RequestHandler.getInstance(getActivity()).addToRequestQueue(stringRequest);
     }
-
-
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    public String toString() {
+        return "Individual";
     }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
 }

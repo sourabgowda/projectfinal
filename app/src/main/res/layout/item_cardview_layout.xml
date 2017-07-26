@@ -3,74 +3,196 @@
     <android.support.v7.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/cvItem"
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_horizontal_margin"
-        android:elevation="12dp"
-        card_view:cardCornerRadius="4dp">
+    style="@style/MyCardViewStyle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:layout_gravity="center_horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Date Time: " />
+
+                <TextView
+                    android:id="@+id/datetime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/datetime" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/titl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Title: " />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title"
+                    android:textColor="#000000"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/conten"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Content: "/>
+
+                <TextView
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/content"
+                    android:textColor="#00000F"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/sende"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sender: " />
+
+                <TextView
+                    android:id="@+id/sender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sender" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/sendermail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/SenderEmail"
+                android:visibility="gone" />
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
         <TextView
-            android:id="@+id/datetime"
+            android:id="@+id/receive"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/datetime"/>
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/title"/>
-        <TextView
-            android:id="@+id/content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/content"/>
+            android:text="Receiver: "
+            android:visibility="visible" />
 
         <TextView
-            android:id="@+id/sender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sender"/>
-        <TextView
-            android:id="@+id/sendermail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/SenderEmail"
-            android:visibility="gone"/>
-        <TextView
-            android:id="@+id/receiver"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/receiver"
-            android:visibility="gone"/>
-        <TextView
-            android:id="@+id/type"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/type" />
-        <TextView
-            android:id="@+id/dept"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Department"/>
-        <TextView
-            android:id="@+id/semester"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/semester"/>
-        <TextView
-            android:id="@+id/section"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/section"/>
+                android:id="@+id/receiver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/receiver"
+                android:visibility="visible" />
+</LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/typ"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Type: " />
+
+                <TextView
+                    android:id="@+id/type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/type" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Department :" />
+
+                <TextView
+                    android:id="@+id/dept"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Department" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/semest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Semester: " />
+
+                <TextView
+                    android:id="@+id/semester"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/semester" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/secti"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Section: " />
+
+                <TextView
+                    android:id="@+id/section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/section" />
+            </LinearLayout>
 
 
-    </LinearLayout>
+        </LinearLayout>
 
-</android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>
 
 
